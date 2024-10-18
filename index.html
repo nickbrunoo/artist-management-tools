@@ -7,14 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" id="passwordContainer">
-        <h1>Enter Password</h1>
-        <input type="password" id="passwordInput" placeholder="Enter Password">
-        <button onclick="checkPassword()">Submit</button>
-        <p id="passwordMessage" class="error-message"></p> <!-- Added a class for styling -->
-    </div>
-
-    <div class="container" id="mainContainer" style="display: none;">
+    <div class="container" id="mainContainer">
         <h1>Artist Management Tools</h1>
         <p>Choose an option below to explore different tools that can help with managing your artist.</p>
         <div class="options">
@@ -23,4 +16,37 @@
             <button onclick="showSection('socialMedia')">Social Media Trends Tracker</button>
         </div>
 
-        <div id="playlist" 
+        <div id="playlist" class="section" style="display: none;">
+            <h2>Playlist Submission Automation</h2>
+            <p>Automatically find and submit your music to relevant Spotify playlists.</p>
+            <form id="playlistForm">
+                <input type="text" id="songName" placeholder="Song Name" required><br>
+                <input type="url" id="spotifyLink" placeholder="Spotify URL or DistroKid Link" required><br>
+                <input type="file" id="songFile" accept="audio/*" required><br>
+                <button type="button" onclick="submitToPlaylists()">Submit</button>
+            </form>
+            <p id="playlistResult"></p>
+            <div id="submittedPlaylists" style="display: none;">
+                <h3>Submitted to the Following Playlists:</h3>
+                <ul id="playlistsList"></ul>
+            </div>
+        </div>
+
+        <div id="videoEditing" class="section" style="display: none;">
+            <h2>Music Video Editing Suggestions</h2>
+            <p>Get editing suggestions based on the beat and mood of the video.</p>
+            <button onclick="getEditingSuggestions()">Get Editing Suggestions</button>
+            <p id="videoEditingResult"></p>
+        </div>
+
+        <div id="socialMedia" class="section" style="display: none;">
+            <h2>Social Media Trends Tracker</h2>
+            <p>Track trending hashtags, challenges, and memes that could boost your artist's visibility.</p>
+            <button onclick="trackTrends()">Track Trends</button>
+            <p id="socialMediaResult"></p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
