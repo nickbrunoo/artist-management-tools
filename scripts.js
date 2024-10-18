@@ -1,11 +1,15 @@
 // Password protection
 function checkPassword() {
     const password = document.getElementById('passwordInput').value;
+    const passwordMessage = document.getElementById('passwordMessage');
+
     if (password === 'MPRC') {
+        passwordMessage.innerText = ''; // Clear any previous message
         document.getElementById('passwordContainer').style.display = 'none';
         document.getElementById('mainContainer').style.display = 'block';
     } else {
-        document.getElementById('passwordMessage').innerText = 'Incorrect password. Please try again.';
+        passwordMessage.innerText = 'Incorrect password. Please try again.';
+        passwordMessage.style.color = 'red'; // Make the error message red
     }
 }
 
@@ -70,4 +74,3 @@ function trackTrends() {
         document.getElementById('socialMediaResult').innerText = 'Trending hashtags: #NewMusicFriday, #RapChallenge, #UndergroundArtist';
     }, 2000);
 }
-
