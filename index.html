@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="passwordContainer">
+        <h1>Enter Password</h1>
+        <input type="password" id="passwordInput" placeholder="Enter Password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="passwordMessage"></p>
+    </div>
+
+    <div class="container" id="mainContainer" style="display: none;">
         <h1>Artist Management Tools</h1>
         <p>Choose an option below to explore different tools that can help with managing your artist.</p>
         <div class="options">
@@ -19,8 +26,17 @@
         <div id="playlist" class="section" style="display: none;">
             <h2>Playlist Submission Automation</h2>
             <p>Automatically find and submit your music to relevant Spotify playlists.</p>
-            <button onclick="submitToPlaylists()">Submit to Playlists</button>
+            <form id="playlistForm">
+                <input type="text" id="songName" placeholder="Song Name" required><br>
+                <input type="url" id="spotifyLink" placeholder="Spotify URL or DistroKid Link" required><br>
+                <input type="file" id="songFile" accept="audio/*" required><br>
+                <button type="button" onclick="submitToPlaylists()">Submit</button>
+            </form>
             <p id="playlistResult"></p>
+            <div id="submittedPlaylists" style="display: none;">
+                <h3>Submitted to the Following Playlists:</h3>
+                <ul id="playlistsList"></ul>
+            </div>
         </div>
 
         <div id="videoEditing" class="section" style="display: none;">
@@ -41,3 +57,4 @@
     <script src="scripts.js"></script>
 </body>
 </html>
+
