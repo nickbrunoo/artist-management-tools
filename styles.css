@@ -47,3 +47,7 @@ button:hover {
 p {
     margin: 10px 0;
 }
+.error-message {
+    color: red; /* Style for error messages */
+    margin-top: 10px;
+}
